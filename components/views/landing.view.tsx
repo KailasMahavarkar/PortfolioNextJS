@@ -11,13 +11,11 @@ const LandingView = () => {
 				<Avatar />
 			</div>
 			<button className="mx-8 mt-8 ">
-				<Link href="/blog">
-					<a>
-						<span className="inline-block px-8 py-3 font-medium text-white transition duration-500 transform bg-pink-600 rounded-full cursor-pointer ease hover:-translate-y-1">
-							Read the blogs
-						</span>
-					</a>
-				</Link>
+				<a href="https://cwk.hashnode.dev">
+					<span className="inline-block px-8 py-3 font-medium text-white transition duration-500 transform bg-pink-600 rounded-full cursor-pointer ease hover:-translate-y-1">
+						Read the blogs
+					</span>
+				</a>
 			</button>
 			<CircleButton
 				to="#about"
