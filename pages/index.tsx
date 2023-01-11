@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 					id="about"
 					spacing="pt-8 pb-2"
 					name="About"
-					styles={undefined}
+					styles=""
 				>
 					<IntroductionView />
 				</SectionLayout>

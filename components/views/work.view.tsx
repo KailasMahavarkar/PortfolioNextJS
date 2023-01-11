@@ -193,7 +193,7 @@ const Work = () => {
 					<CircleButton
 						to="#contact"
 						text="Contact kailas"
-						styles={undefined}
+						styles=""
 					/>
 				</div>
 				<div className="sticky ml-0 md:ml-12 lg:w-2/3">
