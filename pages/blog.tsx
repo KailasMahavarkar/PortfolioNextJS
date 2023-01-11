@@ -9,11 +9,11 @@ const getPosts = async () => {
 	return data;
 };
 
-export default function Home({ posts }) {
+export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>The Harsh Choudhary blog</title>
+				<title>The Kailas Mahavarkar blog</title>
 				<meta
 					name="description"
 					content="Join skilled and smart people who have read Harsh's articles on JavaScript, TypeScript, React, Testing, Career, and more."
