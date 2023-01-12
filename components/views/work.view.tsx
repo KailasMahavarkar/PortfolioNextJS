@@ -162,13 +162,13 @@ const Work = () => {
 
 					<p className="mb-4 text-sm  md:text-base">
 						Till now he has developed and launched 2 web-apps one
-						for a business and other as startup.
+						for a business and other as startup.{" "}
 						<strong>
 							<a
 								className="shadow-link hover:shadow-hover"
 								target="_blank"
 								rel="noopener noreferrer"
-								href="https://sweet2th.app/"
+								href="https://pastekey.io/"
 							>
 								Pastekey.io
 							</a>

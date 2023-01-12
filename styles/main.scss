@@ -141,3 +141,6 @@ section.blockpage {
 	position: relative;
 }
 
+.shadow-link{
+	@apply dark:hover:text-red-500 dark:hover:bg-yellow-400;
+}
