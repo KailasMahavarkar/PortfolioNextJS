@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 const Author = ({ author }) => (
     <div className="relative p-12 mt-20 mb-8 text-center bg-opacity-30">

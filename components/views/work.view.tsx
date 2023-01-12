@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import CircleButton from "../utils/circle.button";
 import WorkPng from "../../public/work.png";
 

@@ -1,6 +1,6 @@
 import { projectCardType } from "@/types";
 import { useTheme } from "next-themes";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const ProjectCard = ({

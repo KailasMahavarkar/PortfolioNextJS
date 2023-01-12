@@ -1,5 +1,5 @@
 import CircleButton from "../utils/circle.button";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const startedYear = new Date().getFullYear() - 2017;
 
