@@ -3,10 +3,6 @@ import Image from "next/legacy/image";
 
 const baseTextStyle = "font-medium text-gray-400 text-small mt-7 md:text-xl";
 
-const GreenText = (children: string, style: string) => {
-	return <span className={`bg-green-500 ${style}`}>{children}</span>;
-};
-
 const BackendAbout = () => {
 	return (
 		<>

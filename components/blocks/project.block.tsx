@@ -13,6 +13,7 @@ const ProjectBlock = () => {
 				const response = await axios.get(
 					"https://raw.githubusercontent.com/KailasMahavarkar/config/main/portfolio.json"
 				);
+				console.log("project data initialized")
 				setProjects(response.data.projects);
 			} catch (error: any) {
 				console.log("Snap :(  --->", error.response?.data);
