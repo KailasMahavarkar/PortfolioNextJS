@@ -1,4 +1,3 @@
-import Link from "next/link";
 import CircleButton from "../utils/circle.button";
 import TypewriterBlock from "../blocks/typewriter.block";
 import Avatar from "../blocks/avatar.block";

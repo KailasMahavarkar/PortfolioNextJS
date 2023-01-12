@@ -1,10 +1,26 @@
-import { useTheme } from "next-themes";
 import { projectCardType } from "../../types";
 import ProjectCard from "../cards/project.card";
-import projects from "../data/projects.data";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const ProjectBlock = () => {
-	const { theme } = useTheme();
+	const [projects, setProjects] = useState([]);
+
+	useEffect(() => {
+		async function fetchData() {
+			// You can await here
+			try {
+				const response = await axios.get(
+					"https://raw.githubusercontent.com/KailasMahavarkar/config/main/portfolio.json"
+				);
+				setProjects(response.data.projects);
+			} catch (error: any) {
+				console.log("Snap :(  --->", error.response?.data);
+			}
+		}
+		fetchData();
+	}, []);
+
 	return (
 		<div
 			className="grid pt-16 pb-4"
@@ -19,14 +35,11 @@ const ProjectBlock = () => {
 						<ProjectCard
 							title={project.title}
 							info={project.info}
-							imageurl={
-								theme === "light"
-									? project.imageurl.light
-									: project.imageurl.dark
-							}
+							imageurl={project.imageurl}
 							github={project.github}
 							website={project.website}
 							techstack={project.techstack}
+							maintenance={project.maintenance}
 						/>
 					</div>
 				);

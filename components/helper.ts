@@ -62,12 +62,3 @@ export const manyCSS = (...args: any[]) => {
 	}
 	return result.trim();
 };
-
-export const withTheme =
-	(theme: any) =>
-	(object: { base: string; light: string; dark?: string }) => {
-		const resolved =
-			theme === "light" ? object.light || "" : object.dark || "";
-
-		return manyCSS(resolved, object.base);
-	};

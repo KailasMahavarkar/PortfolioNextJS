@@ -1,27 +1,44 @@
+import { projectCardType } from "@/types";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-import { manyCSS, tail } from "../helper";
 
-const ProjectCard = ({ imageurl, title, website, github, info, techstack }: any) => {
-	const style_project = {
-		card: {
-			sm: "dark:shadow-md hover:cursor-pointer dark:shadow-gray-500 overflow-hidden shadow w-72 sm:w-full h-full rounded-md min-h-[450px] user-select-none ",
-			md: "",
-		},
-		scaleAnimation: {
-			sm: "transition duration-500 ease transform hover:scale-105",
-		},
-		techstack_span: {
-			sm: "bg-primary-content text-primary inline-block rounded-full px-3 py-1 text-sm capitalize mr-2 mb-1",
-		},
-		info: {
-			sm: `mb-4 leading-snug `,
-		},
+const ProjectCard = ({
+	imageurl,
+	title,
+	website,
+	github,
+	info,
+	techstack,
+	maintenance,
+}: projectCardType) => {
+	const { theme } = useTheme();
+	const Title = () => {
+		return (
+			<h4 className="leading-normal mb-1 truncate flex items-center gap-2">
+				<div
+					className={
+						"flex gap-2 font-bold text-xl items-center hover:text-primary"
+					}
+				>
+					{title}
+					{!maintenance && (
+						<span className="text-sm ">
+							<FaExternalLinkAlt />
+						</span>
+					)}
+				</div>
+			</h4>
+		);
 	};
 
-	const style = tail(style_project);
 	return (
-		<div className={manyCSS(style.card, style.scaleAnimation)}>
+		<div
+			className="dark:shadow-md hover:cursor-pointer dark:shadow-gray-500 
+		overflow-hidden shadow w-72 sm:w-full h-full rounded-md min-h-[450px] user-select-none
+		transition duration-500 ease transform hover:scale-105
+		"
+		>
 			<div className={`overflow-hidden relative`}>
 				<a
 					className={`w-72 h-full sm:w-full`}
@@ -35,7 +52,7 @@ const ProjectCard = ({ imageurl, title, website, github, info, techstack }: any)
 						width={550}
 						layout="responsive"
 						objectFit="cover"
-						src={imageurl}
+						src={theme === "light" ? imageurl.light : imageurl.dark}
 						alt={title}
 					/>
 				</a>
@@ -44,24 +61,18 @@ const ProjectCard = ({ imageurl, title, website, github, info, techstack }: any)
 			<div>
 				<div className={`relative px-6 py-2 sm:py-4 h-full `}>
 					<div className="flex items-center justify-between">
-						<a
-							href={website}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<h4
-								className={`leading-normal mb-1 truncate flex items-center gap-2 
-                            
-                        `}
+						{maintenance ? (
+							<Title />
+						) : (
+							<a
+								href={website}
+								target="_blank"
+								rel="noopener noreferrer"
 							>
-								<div className="flex gap-2 font-bold text-xl hover:text-primary items-center">
-									{title}
-									<span className="text-sm ">
-										<FaExternalLinkAlt />
-									</span>
-								</div>
-							</h4>
-						</a>
+								<Title />
+							</a>
+						)}
+
 						<a
 							href={github}
 							target="_blank"
@@ -75,14 +86,15 @@ const ProjectCard = ({ imageurl, title, website, github, info, techstack }: any)
 						</a>
 					</div>
 
-					<p className={style.info}>{info}</p>
+					<p className="mb-4 leading-snug">{info}</p>
 
 					<div>
 						{techstack.map((tech: string, index: number) => {
 							return (
 								<span
 									key={index}
-									className={style.techstack_span}
+									className="bg-primary-content text-primary inline-block rounded-full 
+									px-3 py-1 text-sm capitalize mr-2 mb-1"
 								>
 									{tech}
 								</span>

@@ -5,15 +5,18 @@ const startedYear = new Date().getFullYear() - 2017;
 
 function Introduction() {
 	return (
-		<div className=" flex flex-col md:flex-row pt-16 pb-4 mx-3">
-			<div className="container mx-auto  lg:col-span-5">
-				<Image
-					className="roudned-md dark:rounded-full"
-					height={400}
-					width={400}
-					alt="about"
-					src="/k.jpeg"
-				/>
+		<div className="flex flex-col items-center justify-center  lg:flex-row pt-16 pb-4 mx-3">
+			<div className="container mx-auto lg:col-span-5">
+				<div className="relative m-auto w-[300px] h-[300px] justify-center items-center">
+					<Image
+						layout="fill"
+						sizes="
+							(max-width: 640px) 100vw"
+						className="rounded-md dark:rounded-full "
+						alt="about"
+						src="/k.jpeg"
+					/>
+				</div>
 			</div>
 			<div className="mt-12 col-span-full lg:col-span-6 lg:col-start-6 lg:mt-0 lg:pl-10">
 				<h3 className="text-xl leading-tight md:text-2xl">

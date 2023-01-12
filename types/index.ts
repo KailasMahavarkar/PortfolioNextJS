@@ -37,7 +37,8 @@ export type projectCardType = {
 		dark: string;
 	};
 	techstack: string[];
-	apidoc: string;
+	apidoc?: string;
+	maintenance: boolean
 };
 
 export type projectType = projectCardType[];

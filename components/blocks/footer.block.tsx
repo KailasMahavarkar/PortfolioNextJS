@@ -2,8 +2,6 @@ import Link from "next/link";
 import { FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import contactData from "../data/contact.data";
 import navbarLinks from "../data/navbar.data";
-import { useTheme } from "next-themes";
-import { withTheme } from "../helper";
 
 export const socialIcons = [
 	{
@@ -27,19 +25,11 @@ export const socialIcons = [
 ];
 
 const Footer = () => {
-	const { theme } = useTheme();
-	const wt = withTheme(theme);
-
-	const style = {
-		footer: wt({
-			base: "relative pt-20 mt-0",
-			light: "bg-base-300",
-			dark: "bg-base-200",
-		}),
-	};
-
 	return (
-		<footer id="contact" className={style.footer}>
+		<footer
+			id="contact"
+			className="relative pt-20 mt-0 bg-base-300 dark:bg-base-200"
+		>
 			<div className="container px-4 mx-0 sm:mx-auto">
 				<div className="flex flex-wrap text-left lg:text-left">
 					<div className="w-full px-4 lg:w-6/12">
@@ -52,11 +42,9 @@ const Footer = () => {
 						<div className="flex my-6 row lg:mb-0">
 							{socialIcons.map((icon) => (
 								<Link key={icon.name} href={icon.to}>
-									<a>
-										<div className="btn btn-circle mx-1 hover:-translate-y-2">
-											{icon.icon}
-										</div>
-									</a>
+									<div className="btn btn-circle mx-1 hover:-translate-y-2">
+										{icon.icon}
+									</div>
 								</Link>
 							))}
 						</div>
@@ -74,7 +62,7 @@ const Footer = () => {
 											className="block pb-2 text-sm hover:font-bold"
 										>
 											<Link href={contact.to}>
-												<a>{contact.name}</a>
+												{contact.name}
 											</Link>
 										</li>
 									))}
@@ -91,7 +79,7 @@ const Footer = () => {
 											className="block pb-2 text-sm hover:font-bold"
 										>
 											<Link href={link.to}>
-												<a>{link.name}</a>
+												{link.name}
 											</Link>
 										</li>
 									))}

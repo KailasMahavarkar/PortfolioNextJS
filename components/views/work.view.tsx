@@ -208,6 +208,7 @@ const Work = () => {
 								loading="lazy"
 								placeholder="blur"
 								layout="fill"
+								sizes="100vw"
 								alt="working developer"
 								src={WorkPng}
 								blurDataURL="https://via.placeholder.com/150/FFFFFF/000000/?text=l.o.a.d.i.n.g"

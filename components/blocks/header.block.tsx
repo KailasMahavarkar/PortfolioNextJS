@@ -98,11 +98,12 @@ const Header: NextPage<any> = () => {
 						className="btn btn-circle"
 						onClick={themeChangeHandler}
 					>
-						{theme === "light" ? (
-							<FaMoon size="1.35em" />
-						) : (
+						<span className="dark:hidden">
 							<FaSun size="1.35em" />
-						)}
+						</span>
+						<span className="hidden dark:block">
+							<FaMoon size="1.35em" />
+						</span>
 					</button>
 				</div>
 			</div>
