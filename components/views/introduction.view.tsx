@@ -1,7 +1,56 @@
 import CircleButton from "../utils/circle.button";
 import Image from "next/legacy/image";
 
-const startedYear = new Date().getFullYear() - 2017;
+const baseTextStyle = "font-medium text-gray-400 text-small mt-7 md:text-xl";
+
+const GreenText = (children: string, style: string) => {
+	return <span className={`bg-green-500 ${style}`}>{children}</span>;
+};
+
+const BackendAbout = () => {
+	return (
+		<>
+			<p className={baseTextStyle}>
+				Over the years, I have been exposing myself to various backend
+				technologies such as
+				<span className="text-green-500">
+					{
+						" Go, Node.js, AWS, Python, Redis, SQL, and Microservices."
+					}
+				</span>
+			</p>
+			<p className={baseTextStyle}>
+				For data structures and algorithms (DSA), I prefer to work with
+				C++ and Python. I find C++ to be very fast, and Python to be
+				very adaptive.
+			</p>
+		</>
+	);
+};
+
+const FrontendAbout = () => {
+	return (
+		<>
+			<p className={baseTextStyle}>
+				My first experience with programming began in 2017, when I
+				started learning PHP. I began my journey by creating websites
+				using WordPress for the frontend. I was fascinated by how easy
+				it was to create blogs and other content using this platform.
+			</p>
+		</>
+	);
+};
+
+const DesignAbout = () => {
+	return (
+		<p className={baseTextStyle}>
+			I also like prototyping and designing basic UI themes, layouts,
+			components in
+			<span className="text-green-500">{" figma "}</span>
+			before starting new project.
+		</p>
+	);
+};
 
 function Introduction() {
 	return (
@@ -24,23 +73,13 @@ function Introduction() {
 					<span className="font-semibold text-purple-600">
 						Kailas.
 					</span>{" "}
-					{`I'm a passionate coding enthusiast who loves building
-                        things with code`}
+					{`I'm a passionate coding enthusiast who loves building things with code`}
 				</h3>
-				<p className="font-medium text-gray-400 text-small mt-7 md:text-xl">
-					{`My first experience with programming was ${startedYear} years ago.
-                    My journey started with PHP, and I got obsessed with creating sites using WordPress, where I overcame lots of small problems in theme management and templates, and I tried solving them with Google and snippets of PHP.`}
-				</p>
-				<p className="font-medium text-gray-400 text-small mt-7 md:text-xl">
-					{`I've been exposing myself to all aspects of web development over the years, working with various frontend, backend, deployment, and testing tools and frameworks such as`}{" "}
-					<span className="text-green-600">
-						{`"GoLang", "Nodejs", "Aws", "Python", "Redis", "SQL", "microservices", and so on.`}
-					</span>
-				</p>
-				<p className="font-medium text-gray-400 text-small mt-7 md:text-xl">
-					{`I also like prototyping and designing basic UI themes,
-					layouts, components before coding it in Figma"`}
-				</p>
+
+				<FrontendAbout />
+				<BackendAbout />
+				<DesignAbout />
+
 				<a
 					href="https://drive.google.com/file/d/1LwwRNgKr5_iw1Pjn94nReWlzkTaatdi5/view?usp=sharing"
 					target="blank"
