@@ -4,7 +4,7 @@ const typeWriterDelay = 30;
 
 const content = {
 	greeting: "Hello!",
-	job: "I'm a Fullstack web developer",
+	job: "I'm a coding Enthusiast",
 	graduation: "and a software Engineer",
 };
 

@@ -24,7 +24,7 @@ const ProjectBlock = () => {
 
 	return (
 		<div
-			className="grid pt-16 pb-4"
+			className="grid place-items-center pt-16 pb-4"
 			style={{
 				gridTemplateColumns: "repeat(auto-fill, minmax(330px, 1fr))",
 				gridGap: "3rem",
@@ -32,7 +32,7 @@ const ProjectBlock = () => {
 		>
 			{projects.map((project: projectCardType, index: number) => {
 				return (
-					<div key={index} className={`flex justify-center`}>
+					<div key={index} className={`flex justify-center max-w-[340px] self-center `}>
 						<ProjectCard
 							title={project.title}
 							info={project.info}
