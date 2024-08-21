@@ -139,7 +139,9 @@ const CareerTimeline = () => {
             linkUrl: 'https://www.carwale.com',
             postLinkContent: ' is top leading automotive portal in India',
             content: `
-                At CarWale, I developed and maintain their Oxygen component library and research and implemented new technologies to enhance web & app performance. My work included DOM element reduction, CSS optimization, video rendering optimization, and researching micro frontend architecture. 
+            At CarWale, my role was research-driven, where I focused on frontendt to backend performance enhancements. 
+            I maintained libraries in Golang, optimized server-side processes, 
+            fine-tuned Webpack for efficient builds, researched micro frontend and css optimizations.
             `
         }
     ];
@@ -149,7 +151,7 @@ const CareerTimeline = () => {
         <>
             {
                 timeLineData.map((data, index) => {
-                    
+
                     return (
                         <TimeLine
                             key={index}
@@ -216,8 +218,8 @@ const Work = () => {
 
                         {/* He has doen multiple internships and worked for 1.4 years with good product based companies */}
                         He has also worked with{" "}
-                        Jhaiho PVT Ltd, a tattoo e-commerce platform, 
-                        Fynd a fashion e-commerce platform and 
+                        Jhaiho PVT Ltd, a tattoo e-commerce platform,
+                        Fynd a fashion e-commerce platform and
                         Carwale, a top leading automotive portal in India.
                         <br />
                         <br />
