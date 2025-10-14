@@ -82,10 +82,6 @@ const TimeLine = ({
 };
 
 const CareerTimeline = () => {
-
-    const media = useMedia();
-    console.table(media);
-
     const timeLineData = [
         {
             timeframe: 'June 2019 - Dec 2021',
@@ -131,17 +127,30 @@ const CareerTimeline = () => {
             It was semi-intern & semi-training program where I learned about the industry standards and best practices.`
         },
         {
-            timeframe: 'April 2022 - Present',
-            role: 'SDE I @carwale',
+            timeframe: 'April 2023 - Jan 2025',
+            role: 'Software Development Engineer (frontend)',
             company: 'Carwale',
             companyUrl: 'https://www.carwale.com',
             linkContent: 'Carwale',
             linkUrl: 'https://www.carwale.com',
             postLinkContent: ' is top leading automotive portal in India',
             content: `
-            At CarWale, my role was research-driven, where I focused on frontendt to backend performance enhancements. 
-            I maintained libraries in Golang, optimized server-side processes, 
-            fine-tuned Webpack for efficient builds, researched micro frontend and css optimizations.
+            At CarWale, my role was research-driven, where I focused mainly on frontend performance enhancements. 
+            I maintained their oxygen design system, and their frontend library, Implemented micro frontend architecture.
+            worked on carwale android app and worked on their internal tools like Ads Manager, Analytics, etc.
+            `
+        },
+        {
+            timeframe: 'Jan 2025 - Present',
+            role: 'SDE - 1 (full stack)',
+            company: 'PineLabs(SETU)',
+            companyUrl: 'https://www.setu.co',
+            linkContent: 'PineLabs(SETU)',
+            linkUrl: 'https://www.setu.co',
+            postLinkContent: ' is a leading fintech company',
+            content: `
+            At PineLabs(SETU), my role was fullstack-driven, where I developed and maintained ICICI Bank's IFinance Section WebApp.
+            Where i worked on React, Typescript, Python, Postgres, Grafana and AWS. I also implemented dashbaord for data-insights team to show analytics to end-users.
             `
         }
     ];
