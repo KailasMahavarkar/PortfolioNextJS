@@ -1,4 +1,4 @@
-import { Mapper, tailcss } from "../types";
+import { Mapper, Tailcss } from "../types/index";
 
 export const scroller = (element: string) => {
 	try {
@@ -30,7 +30,7 @@ const clover = (prefix: string, str: string = "") => {
 // tail() function takes input as Type
 // and returns key of Type with value of type string
 export function tail<T>(
-	object: Mapper<T, tailcss>,
+	object: Mapper<T, Tailcss>,
 	options = {
 		hideKey: false,
 	}
@@ -40,7 +40,7 @@ export function tail<T>(
 	// loop through object
 	for (const key in object) {
 		// if key is not hidden
-		const value: tailcss = object[key];
+		const value: Tailcss = object[key];
 
 		const smRes = value.sm;
 		const mdRes = clover("md", value.md) || "";

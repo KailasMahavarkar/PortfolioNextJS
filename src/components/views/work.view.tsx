@@ -1,5 +1,8 @@
 import CircleButton from "../utils/circle.button";
-import { ReactNode, useMemo } from "react";
+import { ReactNode, useMemo, useContext } from "react";
+import Image from "next/legacy/image";
+import WorkPng from "../../../public/work.png"
+import CustomContext from "../context/custom.context";
 
 interface TimeLineProps {
     timeframe: string;
@@ -8,6 +11,17 @@ interface TimeLineProps {
     company: string;
     children: ReactNode;
     company_url: string;
+}
+
+export interface ExperienceProps {
+    timeframe: string;
+    role: string;
+    company: string;
+    company_url: string;
+    linkContent: string;
+    linkUrl: string;
+    postLinkContent: string;
+    content: string;
 }
 
 const TimeLine = ({
@@ -85,85 +99,12 @@ const TimeLine = ({
 };
 
 const CareerTimeline = () => {
-    const timeLineData = [
-        {
-            timeframe: 'June 2019 - Dec 2021',
-            role: 'Freelance Teacher',
-            company: 'Fiverr.com',
-            companyUrl: 'https://www.fiverr.com/braincity?up_rollout=true',
-            linkContent: 'Fiverr',
-            linkUrl: 'https://www.fiverr.com/braincity?up_rollout=true',
-            postLinkContent: ' is a freelance platform',
-            content: 'During pandemic times, I was able to work as a freelancer and as a teacher to teach young people about computer programming and networking.'
-        },
-        {
-            timeframe: 'June 2021 - Feb 2022',
-            role: 'Freelance Developer',
-            company: 'Dynopictures',
-            companyUrl: 'https://dynopictures.netlify.com',
-            linkContent: 'Dynopictures',
-            linkUrl: 'https://dynopictures.netlify.com',
-            postLinkContent: ' is a local business',
-            content: `During this time, I maintained multiple websites and helped businesses establish their online presence. I have also worked on various freelance projects.`
-
-        },
-        {
-            timeframe: 'Dec 2021 - Feb 2022',
-            role: 'SDE Intern @Jhaiho',
-            company: 'Jhaiho PVT Ltd',
-            companyUrl: 'https://jhaiho.com',
-            linkContent: 'Jhaiho',
-            linkUrl: 'https://jhaiho.com',
-            postLinkContent: ' is a one-stop destination for everything related to tattoos',
-            content: 'As an intern, I was tasked with developing a new version of their API. It was a good opportunity to learn GoLang, GRPC, Protobuf, and microservice architecture.'
-        },
-
-        {
-            timeframe: 'August 2022 - November 2022',
-            role: 'Trainee/Intern@Fynd',
-            company: 'Fynd.com',
-            companyUrl: 'https://fynd.com',
-            linkContent: 'Fynd',
-            linkUrl: 'https://fynd.com',
-            postLinkContent: ' is a fashion e-commerce platform',
-            content: `I learned MEVN stack and worked on their internal tools.
-            It was semi-intern & semi-training program where I learned about the industry standards and best practices.`
-        },
-        {
-            timeframe: 'April 2023 - Jan 2025',
-            role: 'Software Development Engineer (frontend)',
-            company: 'Carwale',
-            companyUrl: 'https://www.carwale.com',
-            linkContent: 'Carwale',
-            linkUrl: 'https://www.carwale.com',
-            postLinkContent: ' is top leading automotive portal in India',
-            content: `
-            At CarWale, my role was research-driven, where I focused mainly on frontend performance enhancements. 
-            I maintained their oxygen design system, and their frontend library, Implemented micro frontend architecture.
-            worked on carwale android app and worked on their internal tools like Ads Manager, Analytics, etc.
-            `
-        },
-        {
-            timeframe: 'Jan 2025 - Present',
-            role: 'SDE - 1 (full stack)',
-            company: 'PineLabs(SETU)',
-            companyUrl: 'https://www.setu.co',
-            linkContent: 'PineLabs(SETU)',
-            linkUrl: 'https://www.setu.co',
-            postLinkContent: ' is a leading fintech company',
-            content: `
-            At PineLabs(SETU), my role was fullstack-driven, where I developed and maintained ICICI Bank's IFinance Section WebApp.
-            Where i worked on React, Typescript, Python, Postgres, Grafana and AWS. I also implemented dashbaord for data-insights team to show analytics to end-users.
-            `
-        }
-    ];
-
+    const { experience } = useContext(CustomContext);
 
     return (
         <>
             {
-                timeLineData.map((data, index) => {
-
+                experience?.map((data, index) => {
                     return (
                         <TimeLine
                             key={index}
@@ -171,7 +112,7 @@ const CareerTimeline = () => {
                             timeframe={data.timeframe}
                             role={data.role}
                             company=''
-                            company_url={data.companyUrl}
+                            company_url={data.company_url}
                         >
                             <>
                                 <strong>
@@ -262,7 +203,7 @@ const Work = () => {
                             <CareerTimeline />
                         </div>
                         <div className="container relative w-64 h-64 mx-auto sm:w-96 sm:h-80">
-                            {/* <Image
+                            <Image
                                 loading="lazy"
                                 placeholder="blur"
                                 layout="fill"
@@ -270,7 +211,7 @@ const Work = () => {
                                 alt="working developer"
                                 src={WorkPng}
                                 blurDataURL="https://via.placeholder.com/150/FFFFFF/000000/?text=l.o.a.d.i.n.g"
-                            /> */}
+                            /> 
                         </div>
                     </div>
                 </div>

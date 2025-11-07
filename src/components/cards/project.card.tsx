@@ -1,4 +1,4 @@
-import { projectCardType } from "../../types/index";
+import { ProjectCardType } from "../../types/index";
 import { useTheme } from "next-themes";
 import Image from "next/legacy/image";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
@@ -12,7 +12,7 @@ const ProjectCard = ({
     info,
     techstack,
     maintenance,
-}: projectCardType) => {
+}: ProjectCardType) => {
     const { theme } = useTheme();
     const TitleElement = useMemo(() => (
         <h4 className="leading-normal mb-1 truncate flex items-center gap-2">

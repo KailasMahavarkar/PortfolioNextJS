@@ -1,11 +1,15 @@
+import { ProjectCardType } from "@/types";
 import { createContext } from "react";
+import { ExperienceProps } from "../views/work.view";
 
 export type customContextType = {
-	width: number;
+    experience: ExperienceProps[];
+    projects: ProjectCardType[];
 };
 
 const CustomContext = createContext<customContextType>({
-	width: 0,
+    experience: [],
+    projects: [],
 });
 
 export default CustomContext;

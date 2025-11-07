@@ -5,6 +5,12 @@ import Head from "next/head";
 import "@/styles/global.css";
 
 import { Roboto } from 'next/font/google'
+import CustomContext from "@/components/context/custom.context";
+import { useEffect, useState } from "react";
+import { ExperienceProps } from "@/components/views/work.view";
+import { ProjectCardType } from "@/types";
+import axios, { AxiosError } from "axios";
+
 const roboto = Roboto({
     weight: ['500'],
     subsets: ['latin'],
@@ -12,6 +18,25 @@ const roboto = Roboto({
 
 
 function MyApp({ Component, pageProps }: AppProps) {
+    const [experience, setExperience] = useState<ExperienceProps[]>([]);
+    const [projects, setProjects] = useState<ProjectCardType[]>([]);
+
+	useEffect(() => {
+		async function fetchData() {
+			try {
+				const response = await axios.get(
+					"https://raw.githubusercontent.com/KailasMahavarkar/config/main/portfolio.json"
+				);
+				setExperience(response.data.experience);
+				setProjects(response.data.projects);
+			} catch (error: unknown) {
+				console.log("Snap :(  --->", (error as AxiosError).response?.data);
+			}   
+		}
+		fetchData();
+	}, []);
+
+
     return (
         <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
             <Head>
@@ -44,9 +69,11 @@ function MyApp({ Component, pageProps }: AppProps) {
                 />
             </Head>
 
-            <Layout className={roboto.className}>
-                <Component {...pageProps} />
-            </Layout>
+            <CustomContext.Provider value={{ experience, projects }}>
+                <Layout className={roboto.className}>
+                    <Component {...pageProps} />
+                </Layout>
+            </CustomContext.Provider>
         </ThemeProvider>
     );
 }

@@ -1,27 +1,11 @@
-import { projectCardType } from "../../types";
+import { ProjectCardType } from "../../types";
 import ProjectCard from "../cards/project.card";
-import { useEffect, useState } from "react";
-import axios, { AxiosError } from "axios";
+import { useContext } from "react";
+import CustomContext from "../context/custom.context";
 
 const ProjectBlock = () => {
-	const [projects, setProjects] = useState([]);
-
-	useEffect(() => {
-		async function fetchData() {
-			// You can await here
-			try {
-				const response = await axios.get(
-					"https://raw.githubusercontent.com/KailasMahavarkar/config/main/portfolio.json"
-				);
-				console.log("project data initialized")
-				setProjects(response.data.projects);
-			} catch (error: unknown) {
-				console.log("Snap :(  --->", (error as AxiosError).response?.data);
-			}   
-		}
-		fetchData();
-	}, []);
-
+    
+    const { projects } = useContext(CustomContext);
 	return (
 		<div
 			className="grid place-items-center pt-16 pb-4"
@@ -30,7 +14,7 @@ const ProjectBlock = () => {
 				gridGap: "3rem",
 			}}
 		>
-			{projects.map((project: projectCardType, index: number) => {
+			{projects.map((project: ProjectCardType, index: number) => {
 				return (
 					<div key={index} className={`flex justify-center max-w-[340px] self-center `}>
 						<ProjectCard

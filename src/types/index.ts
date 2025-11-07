@@ -6,7 +6,7 @@ export type Map<T> = {
 	[key in keyof T]: T[key];
 };
 
-export interface tailcss {
+export interface Tailcss {
 	// sm
 	sm: string;
 	effect_sm?: string;
@@ -27,7 +27,7 @@ export interface tailcss {
 	nulled?: string;
 }
 
-export type projectCardType = {
+export type ProjectCardType = {
 	title: string;
 	info: string;
 	website: string;
@@ -41,4 +41,4 @@ export type projectCardType = {
 	maintenance: boolean
 };
 
-export type projectType = projectCardType[];
+export type ProjectsType = ProjectCardType[];
