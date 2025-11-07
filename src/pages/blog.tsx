@@ -1,6 +1,3 @@
-// import { FeaturedPosts } from "../sections/index";
-// import { PostCard, Categories, PostWidget } from "../components";
-// import { getPosts } from "../services";
 import Head from "next/head";
 
 const getPosts = async () => {

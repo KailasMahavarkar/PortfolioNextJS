@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { scroller } from "..//helper";
+import { scroller } from "../helper";
 
 const HeroBlock = () => {
 	const router = useRouter();

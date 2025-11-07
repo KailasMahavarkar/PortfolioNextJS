@@ -1,7 +1,14 @@
-import Image from "next/legacy/image";
 import CircleButton from "../utils/circle.button";
-import WorkPng from "../../public/work.png";
-import useMedia from "../hooks/useMedia";
+import { ReactNode, useMemo } from "react";
+
+interface TimeLineProps {
+    timeframe: string;
+    role: string;
+    mode: string;
+    company: string;
+    children: ReactNode;
+    company_url: string;
+}
 
 const TimeLine = ({
     timeframe,
@@ -10,14 +17,14 @@ const TimeLine = ({
     company,
     children,
     company_url,
-}: any) => {
+}: TimeLineProps) => {
     const style = {
         role: "mb-1 text-lg font-bold md:text-2xl capitalize ",
         company: " shadow-link hover:shadow-none hover:text-red-500",
         children: "leading-snug ",
     };
 
-    const LeftLine = () => {
+    const LeftLine = useMemo(() => {
         return (
             <div className="flex flex-row-reverse items-center justify-between w-full mb-8 left-timeline">
                 <div className="order-1 w-5/12"></div>
@@ -44,9 +51,9 @@ const TimeLine = ({
                 </div>
             </div>
         );
-    };
+    }, [timeframe, role, company, company_url, children, style.company, style.children]);
 
-    const RightLine = () => {
+    const RightLine = useMemo(() => {
         return (
             <div className="flex items-center justify-between w-full mb-8 right-timeline">
                 <div className="order-1 w-5/12"></div>
@@ -72,13 +79,9 @@ const TimeLine = ({
                 </div>
             </div>
         );
-    };
+    }, [timeframe, style.role, style.company, style.children, role, company, company_url, children]);
 
-    if (mode === "left") {
-        return <LeftLine />;
-    } else {
-        return <RightLine />;
-    }
+    return mode === "left" ? LeftLine : RightLine;
 };
 
 const CareerTimeline = () => {
@@ -168,7 +171,7 @@ const CareerTimeline = () => {
                             timeframe={data.timeframe}
                             role={data.role}
                             company=''
-                            companyUrl={data.companyUrl}
+                            company_url={data.companyUrl}
                         >
                             <>
                                 <strong>
@@ -259,7 +262,7 @@ const Work = () => {
                             <CareerTimeline />
                         </div>
                         <div className="container relative w-64 h-64 mx-auto sm:w-96 sm:h-80">
-                            <Image
+                            {/* <Image
                                 loading="lazy"
                                 placeholder="blur"
                                 layout="fill"
@@ -267,7 +270,7 @@ const Work = () => {
                                 alt="working developer"
                                 src={WorkPng}
                                 blurDataURL="https://via.placeholder.com/150/FFFFFF/000000/?text=l.o.a.d.i.n.g"
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>

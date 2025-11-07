@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-
-const daisy = require("daisyui");
-const tailwindTypography = require("@tailwindcss/typography");
+import daisyui from "daisyui";
+import tailwindTypography from "@tailwindcss/typography";
 
 const childrenSupport = ({ addVariant }) => {
 	addVariant("child", "& > *");
@@ -16,8 +15,8 @@ const themes = [
 			accent: "#9333EA", // requires black text
 			neutral: "#272D3F", // requires white text
 			"base-100": "#fafafa",
-            "base-200": "#f5f5f5",
-            "base-300": "#f8f8f8",
+			"base-200": "#f5f5f5",
+			"base-300": "#f8f8f8",
 			info: "#29BCE0",
 			success: "#1DC9A6",
 			warning: "#F1920E",
@@ -34,19 +33,19 @@ const themes = [
 			"--tab-radius": "0.5rem", // border radius of tabs
 		},
 		dark: {
-            primary: "#661AE6",
-            "primary-content": "#ffffff",
-            secondary: "#D926AA",
-            "secondary-content": "#ffffff",
-            accent: "#1FB2A5",
-            "accent-content": "#ffffff",
-            neutral: "#191D24",
-            "neutral-focus": "#111318",
-            "neutral-content": "#A6ADBB",
+			primary: "#661AE6",
+			"primary-content": "#ffffff",
+			secondary: "#D926AA",
+			"secondary-content": "#ffffff",
+			accent: "#1FB2A5",
+			"accent-content": "#ffffff",
+			neutral: "#191D24",
+			"neutral-focus": "#111318",
+			"neutral-content": "#A6ADBB",
 			"base-100": "#1f2028",
-            "base-200": "#242933",
-            "base-300": "#20252E",
-            "base-content": "#A6ADBB",
+			"base-200": "#242933",
+			"base-300": "#20252E",
+			"base-content": "#A6ADBB",
 		},
 	},
 ];
@@ -58,7 +57,7 @@ module.exports = {
 		"./components/**/*.{js,ts,jsx,tsx}",
 		"./layouts/**/*.{js,ts,jsx,tsx,md,mdx}",
 	],
-	
+
 	theme: {
 		extend: {
 			spacing: {
@@ -78,7 +77,7 @@ module.exports = {
 			"2xl": 1440,
 		},
 	},
-	plugins: [tailwindTypography, daisy, childrenSupport],
+	plugins: [tailwindTypography, daisyui, childrenSupport],
 	daisyui: {
 		styled: true,
 		base: true,

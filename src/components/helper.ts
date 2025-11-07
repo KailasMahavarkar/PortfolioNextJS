@@ -1,14 +1,14 @@
 import { Mapper, tailcss } from "../types";
 
-export const scroller = (element: any) => {
+export const scroller = (element: string) => {
 	try {
 		// find target element to scroll
-		const scroll: any = document.getElementById(element);
+		const scroll = document.getElementById(element);
 
 		// scroll to target element
-		scroll.scrollIntoView({ behavior: "smooth" });
+		scroll?.scrollIntoView({ behavior: "smooth" });
 	} catch (error) {
-		//
+		console.error(error);
 	}
 };
 
@@ -35,12 +35,12 @@ export function tail<T>(
 		hideKey: false,
 	}
 ): Mapper<T, string> {
-	const res: any = {};
+	const res: Mapper<T, string> = {} as Mapper<T, string>;
 
 	// loop through object
 	for (const key in object) {
 		// if key is not hidden
-		const value: any = object[key];
+		const value: tailcss = object[key];
 
 		const smRes = value.sm;
 		const mdRes = clover("md", value.md) || "";
@@ -55,7 +55,7 @@ export function tail<T>(
 	return res;
 }
 
-export const manyCSS = (...args: any[]) => {
+export const manyCSS = (...args: string[]) => {
 	let result = "";
 	for (let i = 0; i < args.length; i++) {
 		result += args[i] + " ";
