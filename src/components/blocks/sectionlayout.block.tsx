@@ -1,4 +1,12 @@
-const SectionLayout = ({ children, spacing, id, name, styles }: any) => {
+interface SectionLayoutProps {
+	children: React.ReactNode;
+	spacing: string;
+	id: string;
+	name: string;
+	styles: string;
+}
+
+const SectionLayout = ({ children, spacing, id, name, styles }: SectionLayoutProps) => {
 	return (
 		<section className="mt-24" id={id}>
 			<div

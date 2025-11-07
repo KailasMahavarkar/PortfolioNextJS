@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import CustomContext from "../context/custom.context";
 
 const screen = {
@@ -9,10 +9,10 @@ const screen = {
 };
 
 interface cType {
-	mobile: any;
-	tablet?: any;
-	laptop?: any;
-	desktop?: any;
+	mobile: React.ReactNode;
+	tablet?: React.ReactNode;
+	laptop?: React.ReactNode;
+	desktop?: React.ReactNode;
 }
 
 const useMedia = () => {

@@ -1,7 +1,7 @@
 import { projectCardType } from "../../types";
 import ProjectCard from "../cards/project.card";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const ProjectBlock = () => {
 	const [projects, setProjects] = useState([]);
@@ -15,9 +15,9 @@ const ProjectBlock = () => {
 				);
 				console.log("project data initialized")
 				setProjects(response.data.projects);
-			} catch (error: any) {
-				console.log("Snap :(  --->", error.response?.data);
-			}
+			} catch (error: unknown) {
+				console.log("Snap :(  --->", (error as AxiosError).response?.data);
+			}   
 		}
 		fetchData();
 	}, []);

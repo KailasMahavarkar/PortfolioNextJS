@@ -26,7 +26,7 @@ const greaterThanMedium = () => width > screen.screen_md_min;
 const greaterThanLarge = () => width > screen.screen_lg_min;
 const greaterThanXLarge = () => width > screen.screen_xl_min;
 
-export default {
+const mediaQueries = {
 	lessThanSmall,
 	lessThanMedium,
 	lessThanLarge,
@@ -37,3 +37,5 @@ export default {
 	greaterThanLarge,
 	greaterThanXLarge,
 };
+
+export default mediaQueries;
